@@ -53,7 +53,7 @@ app.post('/', async (c) => {
 
   const octokit = new Octokit({auth: tokenForUser});
   const user = await octokit.request("GET /user");
-  const promt = getUserMessage(payload);
+  const prompt = getUserMessage(payload);
 
   return c.text(
     createAckEvent() +
@@ -69,5 +69,5 @@ console.log(`Server running on http://localhost:${port}`)
 
 serve({
   fetch: app.fetch,
-  port
+  port,
 })
